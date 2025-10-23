@@ -82,7 +82,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { IDeactivatable } from './IDeactivatable';
 
 @Component({
-  selector: 'app-simple-form',
   standalone: true,
   imports: [CommonModule, FormsModule],
   host: {
@@ -101,8 +100,8 @@ import { IDeactivatable } from './IDeactivatable';
   `
 })
 export class HomeComponent implements IDeactivatable {
-  model = { name: '' };
-  isSubmitted = signal(false);
+  public readonly model = { name: '' };
+  public readonly isSubmitted = signal(false);
   private readonly form = viewChild('form', { read: NgForm });
 
   public readonly canDeactivate = (): boolean => {
