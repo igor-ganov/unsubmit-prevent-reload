@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {MenuComponent} from './layout/menu.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  imports: [RouterOutlet, MenuComponent],
+  template: `
+    <menu app-menu></menu>
+    <router-outlet/>
+  `
 })
 export class App {
-  protected readonly title = signal('unsubmit-prevent-reload');
 }
